@@ -1,0 +1,167 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: white;
+    font-size: 30px;
+    font-family: Calibri, serif;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #36393F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.board {
+    position: relative;
+    background: #462101 url("./public/assets/board.png") no-repeat;
+    background-size: 100%;
+    border: 0 solid #000;
+    border-radius: 3.6vw;
+    height: 55vh;
+    aspect-ratio: 1600 / 697;
+}
+
+.board span {
+    display: inline-block;
+    background: #51280c;
+    opacity: 0.6;
+    color: #eee;
+    width: 3vh;
+    border: 1px solid #311c0d;
+    font-size: 2vh;
+    border-radius: 2px;
+    left: calc(50% - 1.5vh);
+}
+
+.pit div {
+    background: url("./public/assets/stones/4.webp") no-repeat center;
+    background-size: 100%;
+    width: 70%;
+    height: 70%;
+}
+
+.home div {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+    width: 100%;
+    height: 105%;
+    pointer-events: none;
+}
+
+.home {
+    position: absolute;
+    top: 15%;
+    width: 9.3%;
+    height: 70%;
+    background: url("./public/assets/home.png") no-repeat center;
+    background-size: 100%;
+    border: 0 solid #fff;
+    right: 5%;
+}
+
+.pit {
+    position: absolute;
+    width: 10%;
+    height: 45%;
+    background: url("./public/assets/pit.png") no-repeat center;
+    background-size: 75%;
+    border: 0 solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home:last-child {
+    right: auto;
+    left: 5%;
+}
+
+.pit:nth-child(1) {
+    bottom: 5%;
+    left: 20%;
+}
+
+.pit:nth-child(2) {
+    bottom: 5%;
+    left: 30%;
+}
+
+.pit:nth-child(3) {
+    bottom: 5%;
+    left: 40%;
+}
+
+.pit:nth-child(4) {
+    bottom: 5%;
+    left: 50%;
+}
+
+.pit:nth-child(5) {
+    bottom: 5%;
+    left: 60%;
+}
+
+.pit:nth-child(6) {
+    bottom: 5%;
+    left: 70%;
+}
+
+.pit:nth-child(7) {
+    top: 5%;
+    left: 70%;
+}
+
+.pit:nth-child(8) {
+    top: 5%;
+    left: 60%;
+}
+
+.pit:nth-child(9) {
+    top: 5%;
+    left: 50%;
+}
+
+.pit:nth-child(10) {
+    top: 5%;
+    left: 40%;
+}
+
+.pit:nth-child(11) {
+    top: 5%;
+    left: 30%;
+}
+
+.pit:nth-child(12) {
+    top: 5%;
+    left: 20%;
+}
+
+.holding {
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 10%;
+    height: 45%;
+    text-align: center;
+    left: 45%;
+    top: -40%;
+    border-radius: 50%;
+}
+
+.spread {
+    pointer-events: none;
+    background: none no-repeat center;
+    background-size: 70%;
+    position: absolute;
+    width: 7.2%;
+    aspect-ratio: 92 / 180;
+}
