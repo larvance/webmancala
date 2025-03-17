@@ -18,6 +18,31 @@ body {
     box-sizing: border-box;
 }
 
+.options {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.option {
+    display: flex;
+}
+
+.btn {
+    background: #7c7c7c;
+    width: fit-content;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: #8c8c8c;
+}
+
 .board {
     position: relative;
     background: #462101 url("./public/assets/board.png") no-repeat;

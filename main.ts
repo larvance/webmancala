@@ -16,10 +16,11 @@ for (let i = 0; i <= 30; i++) {
     img.src = `./assets/stones/${i}.webp`;
 }
 
-const game = {
+const game = JSON.parse(localStorage.getItem("mancala.game") ?? JSON.stringify({
+    depth: 3,
     turn: false,
-    pits: Array(14).fill(0)
-};
+    pits: [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0]
+}));
 
 function resetGame() {
     game.turn = false;
@@ -48,9 +49,11 @@ function renderPits() {
         const value = getPit(index);
         pitTexts[index].innerText = value.toString();
         const img = pitImages[index];
-        img.style.cursor = game.turn !== (index < 6) ? "pointer" : "default";
+        img.style.cursor = game.turn !== (index < 6) && value > 0 ? "pointer" : "default";
         renderPitImage(img, value);
     }
+
+    localStorage.setItem("mancala.game", JSON.stringify(game));
 }
 
 function addPit(index: number, value: number) {
@@ -231,8 +234,6 @@ for (const [i, divIndex] of indices.entries()) {
     });
 }
 
-resetGame();
-
 addEventListener("contextmenu", e => {
     e.preventDefault();
 });
@@ -260,6 +261,8 @@ async function getBestMove(depth = 3) {
     });
 }
 
+renderPits();
+
 async function playAI() {
     let move = (await getBestMove()).bestMove;
     await makeMoveAnimation(move > 5 ? move + 1 : move);
@@ -273,3 +276,15 @@ const aiReady = new Promise(r => {
         } else if (data === "ready") r(null);
     };
 });
+
+document.querySelector(".reset")!.addEventListener("click", () => {
+    resetGame();
+});
+
+document.querySelector(".depth > input")!.addEventListener("input", e => {
+    game.depth = (<HTMLInputElement>e.target).value;
+    document.getElementById("depth")!.textContent = game.depth.toString();
+});
+
+document.getElementById("depth")!.textContent = game.depth.toString();
+(<HTMLInputElement>document.querySelector(".depth > input")).value = game.depth.toString();
