@@ -277,6 +277,10 @@ const aiReady = new Promise(r => {
     };
 });
 
+aiReady.then(() => {
+    if (game.turn) playAI().then(r => r);
+});
+
 document.querySelector(".reset")!.addEventListener("click", () => {
     resetGame();
 });
