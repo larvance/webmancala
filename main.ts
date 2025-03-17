@@ -227,7 +227,7 @@ for (const [i, divIndex] of indices.entries()) {
     img.addEventListener("click", async () => {
         if (i === 6 || i === 13 || (i > 6) !== game.turn || getPit(i) === 0 || game.turn) return;
         await makeMoveAnimation(i);
-        if (game.turn) await playAI();
+        while (game.turn) await playAI();
     });
 }
 
