@@ -243,7 +243,7 @@ const worker = new Worker(new URL("./worker.ts", import.meta.url));
 const requests: Record<string, (data: unknown) => void> = {};
 let _id = 0;
 
-async function getBestMove(depth = 3) {
+async function getBestMove(depth = game.depth) {
     await aiReady;
     let pits = 0n;
     for (let i = 0; i <= 12; i++) {
